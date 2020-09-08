@@ -2,15 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// 부모 Board 컴포넌트에서 자식 Square 컴포넌트로 prop을 전달
 class Square extends React.Component {
   render() {
-    return <button className='square'>{/* TODO */}</button>;
+    return (
+      <button
+        className='square'
+        onClick={() => {
+          alert('click');
+        }}
+      >
+        {this.props.value}
+      </button>
+    );
   }
 }
 
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
