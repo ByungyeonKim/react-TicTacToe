@@ -4,15 +4,17 @@ import './index.css';
 
 // 부모 Board 컴포넌트에서 자식 Square 컴포넌트로 prop을 전달
 class Square extends React.Component {
+  constructor(props) {
+    // 모든 React 컴포넌트 클래스는 생성자를 가질 때 super(props) 호출 구문부터 작성해야 한다.
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
   render() {
     return (
-      <button
-        className='square'
-        onClick={() => {
-          alert('click');
-        }}
-      >
-        {this.props.value}
+      <button className='square' onClick={() => this.setState({ value: 'X' })}>
+        {this.state.value}
       </button>
     );
   }
