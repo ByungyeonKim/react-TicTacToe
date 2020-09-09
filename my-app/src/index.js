@@ -3,14 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 // 부모 Board 컴포넌트에서 자식 Square 컴포넌트로 prop을 전달
-class Square extends React.Component {
-  render() {
-    return (
-      <button className='square' onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
-    );
-  }
+// class Square extends React.Component {
+//   render() {
+//     return (
+//       <button className='square' onClick={() => this.props.onClick()}>
+//         {this.props.value}
+//       </button>
+//     );
+//   }
+// }
+
+function Square(props) {
+  return (
+    // 모든 this.props를 props로 변경
+    // 양쪽에 괄호()가 사라짐 onClick={() => this.props.onClick()}
+    <button className='square' onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 class Board extends React.Component {
